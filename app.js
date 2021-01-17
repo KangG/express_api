@@ -26,6 +26,21 @@ app.options('*', cors(corsConfig.checkOrigin));
 app.use(cors(corsConfig.checkOrigin));
 
 
+// const mysql = require('mysql');
+
+// //-----------DB------------------
+// const db_config  = require('./db-config.json');
+// const pool = mysql.createPool({
+//     host: db_config.host,
+//     user: db_config.user,
+//     password: db_config.password,
+//     database: db_config.database,
+//     port: 3306,
+//     connectionLimit: 20,
+//     waitForConnection: false
+// });
+// //-----------DB------------------
+
 app.get('/test', function (req, res) {
   res.send({test: 'ok'});
 });
@@ -46,8 +61,7 @@ app.use(function (err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+  res.status(err.status || 500).end();
 });
 
 module.exports = app;
