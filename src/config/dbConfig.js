@@ -1,14 +1,10 @@
 const mysql = require('mysql');
 
 exports.pool = mysql.createPool({
-    // host: db_config.host,
-    // user: db_config.user,
-    // password: db_config.password,
-    // database: db_config.database,
-    host: "janedb.cpuglwdnhpqg.ap-northeast-2.rds.amazonaws.com",
-    user: "admin1234",
-    password: "admin1234",
-    database: "kdkd",
+    host: "rtrod-mysql.ccno6mzzzdfg.ap-northeast-2.rds.amazonaws.com",
+    user: "rtrod",
+    password: "rtrod01!",
+    database: "rtrod",
     port: 3306,
     connectionLimit: 20,
     waitForConnection: false

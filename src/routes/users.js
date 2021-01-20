@@ -20,7 +20,7 @@ router.post('/login', (req, res) => {
   let user_check = `
     select *
     from user
-    where id=? and password=?aaa;
+    where id=? and password=?;
     `;
 
   dbConfig.pool.getConnection((err, connection) => {
@@ -37,13 +37,6 @@ router.post('/login', (req, res) => {
             grade: login_results[0].grade,
           })
           .end();
-        // sess.userid = login_results[0].id;
-        // sess.name = login_results[0].name;
-        // sess.grade = login_results[0].grade;
-        // req.session.save(() => {
-        //     connection.release();
-        //     res.redirect('/home');
-        // });
       } else {
         dbConfig.dbErrorHandler(err, connection, res);
       }
